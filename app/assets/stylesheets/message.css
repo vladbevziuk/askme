@@ -1,0 +1,12 @@
+.message{
+    border: 1px solid ghostwhite;
+    padding: 10px 15px;
+}
+.message-notice{
+    background-color: white;
+    border-color: yellow;
+}
+.message-alert{
+    background-color: white;
+    border-color: #B00100;
+}
