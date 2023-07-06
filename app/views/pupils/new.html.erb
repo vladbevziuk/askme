@@ -1,0 +1,20 @@
+<div class = 'container'>
+  <h2 class = 'title'> Join and ask!</h2>
+
+
+  <div class = 'mt'>
+    <%= form_with model: @pupil do |form| %>
+      <p><%= form.label :names, 'Your name'  %></p>
+      <p><%= form.text_field :names, class: 'form-text-field' %></p>
+
+      <p class = 'mt'><%= form.label :nicknames, "Your nick"  %></p>
+      <p><%= form.text_field :nicknames, class: 'form-text-field' %></p>
+
+      <p class = 'mt'><%= form.label :emails  %></p>
+      <p><%= form.text_field :emails, class: 'form-text-field' %></p>
+
+
+      <p class = 'mt-lg'><%= form.submit 'Sign up', class: 'button button-main'  %></p>
+    <% end %>
+  </div>
+</div>
