@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    @current_user ||= Pupil.find_by(id: session[:pupil_id]) if session[pupil_id]
+    @current_user ||= Pupil.find_by(id: session[:user_id]) if session[:user_id]
 
 
   end

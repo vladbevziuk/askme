@@ -23,3 +23,7 @@ a, button{
 .text-grey{
     color: #BBBBBB;
 }
+
+.text-bold{
+    font-weight: bold;
+}

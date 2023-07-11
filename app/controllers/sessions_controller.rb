@@ -3,14 +3,23 @@ class SessionsController < ApplicationController
   end
 
   def create
-    pupils_params = params.require(:session)
+    pupil_params = params.require(:session)
 
-    pupil = Pupil.find_by(email: pupils_params[:email])
+    pupil = Pupil.find_by(email: pupil_params[:email])
 
     if pupil.present?
-      session[:pupils_id] = pupil.id
+      session[:user_id] = pupil.id
 
       redirect_to root_path, notice: 'You entered to site'
+    else
+      flash.now[:alert] = 'Wrong email or password'
+
+      render :new
     end
+  end
+  def destroy
+    session.delete(user_id)
+
+    redirect_to root_path, notice: "You logged out"
   end
 end

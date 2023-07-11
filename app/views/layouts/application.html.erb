@@ -17,18 +17,20 @@
         <div>
           <% if current_user.present?%>
             <%= "@#{current_user.nicknames}" %>
+            <%= button_to 'Log out', session_path, method: :delete %>
           <% else %>
             <%= link_to 'Register', new_pupil_path, class: 'button button-yellow mr-sm'%>
             <%= link_to 'Sign in', new_session_path, class: 'button button-yellow'%>
+          <% end %>
         </div>
       </div>
+
       <% if flash[:notice].present? %>
         <p class="mb mt message message-notice"><%= flash[:notice] %></p>
-      <%= elsif flash[:alert].present? %>
+      <% elsif flash[:alert].present? %>
         <p class="mb mt message-alert"><%= flash[:alert] %> </p>
       <% end %>
 
-      <%= flash.inspect %>
       <%= yield %>
     </div>
   </body>
