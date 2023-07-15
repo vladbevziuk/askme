@@ -7,8 +7,13 @@ class PupilsController < ApplicationController
   def create
     pupil_params = params.require(:pupil).permit(:names, :nicknames, :emails)
 
-    Pupil.create(pupil_params)
+    @pupil = Pupil.new(pupil_params)
+    if @pupil.save
+      redirect_to root_path, notice: 'You are registered'
+    else
+      flash.now[:alert] = "You have registered incorrectly"
 
-    redirect_to root_path, notice: 'You are registered'
+      render :new
+    end
   end
 end
