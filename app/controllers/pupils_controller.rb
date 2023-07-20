@@ -5,7 +5,7 @@ class PupilsController < ApplicationController
   end
 
   def create
-    pupil_params = params.require(:pupil).permit(:names, :nicknames, :emails)
+    pupil_params = params.require(:pupil).permit(:names, :nicknames, :emails, :password)
 
     @pupil = Pupil.new(pupil_params)
     if @pupil.save

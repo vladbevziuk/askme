@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     pupil_params = params.require(:session)
 
-    pupil = Pupil.find_by(emails: pupil_params[:emails])
+    pupil = Pupil.find_by(emails: pupil_params[:emails])&.authenticate(pupil_params[:password])
 
     if pupil.present?
       session[:user_id] = pupil.id
